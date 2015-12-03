@@ -14,12 +14,12 @@ An attempt at describing the purpose of each table in LabTech.
 | agentcomputers | |
 | agentdefaults | |
 | agentignore | |
-| agents | |
+| agents | Monitor data, can be related to groupmonitors and groupdmonitors. The `DriveID` field on this table is a collection of group ids that are using the monitor. |
 | agenttrendingdata | |
 | alerts | |
-| alerttemplate | |
+| alerttemplate | Alert templates. Dashboard -> Management -> Alert Templates |
 | alerttemplatemaintenance | |
-| alerttemplates | |
+| alerttemplates | Alert template actions. Can be viewed in the table below a selected alert template. |
 | antivirusconfigurationlookup | |
 | antivirusconfigurationsettings | |
 | antivirusstatuslookup | |
@@ -83,7 +83,7 @@ An attempt at describing the purpose of each table in LabTech.
 | custommenus | |
 | databasealerts | |
 | databasealertsignored | |
-| databasefails | |
+| databasefails | Failed internal monitors. |
 | datacache | |
 | datacollectors | |
 | dataviewfolders | |
@@ -101,27 +101,27 @@ An attempt at describing the purpose of each table in LabTech.
 | errorlogs | |
 | eventblacklist | |
 | eventlogs | |
-| extrafield | |
-| extrafielddata | |
+| extrafield | Extra data fields. |
+| extrafielddata | Data for extra data fields. |
 | failedemails | |
 | filelibrary | |
 | founddevice | |
 | functions | |
-| groupagents | |
+| groupagents | Remote monitors. |
 | groupagentscontrol | |
 | groupagentscontroldevices | |
 | groupbackupjobs | |
-| groupdagents | |
+| groupdagents | Internal monitors. |
 | groupmonitorcontrol | |
 | groupmonitors | |
-| groupscripts | |
+| groupscripts | Contains scripts scheduled at the group level. |
 | h_agentdata | |
 | h_agentdatadaily | |
 | h_agentdatamonthly | |
 | h_agentdataweekly | |
 | h_agentdatayearly | |
 | h_agenthistory | |
-| h_agents | |
+| h_agents | All agent history, also used to get failed remote monitors. |
 | h_agentsignup | |
 | h_apps | |
 | h_clientscript | |
@@ -249,11 +249,11 @@ An attempt at describing the purpose of each table in LabTech.
 | mactable | |
 | maintenancemode | |
 | maintenancemodealerts | |
-| maintenancewindow | |
+| maintenancewindow | Contains maintenance windows. Fancy eh? |
 | maintenancewindows | |
 | managementreport | |
 | managementscore | |
-| mastergroups | This table contains all groups in LabTech. The 'master' portion of the name is not related to the group type; that can be found on mastergroups.GroupType |
+| mastergroups | Contains all groups in LabTech. The 'master' portion of the name is not related to the group type; that can be found on mastergroups.GroupType |
 | mngd_svc_defs | |
 | mngd_svc_services | |
 | mngd_svc_servicexrefs | |
@@ -467,7 +467,7 @@ An attempt at describing the purpose of each table in LabTech.
 | scripttime | |
 | searches | |
 | searchfolders | |
-| sensorchecks | |
+| sensorchecks | Contains searches and their SQL. |
 | serverfiles | |
 | services | |
 | signupdata | |
@@ -479,7 +479,7 @@ An attempt at describing the purpose of each table in LabTech.
 | sphistory | |
 | spjobs | |
 | statusitems | |
-| subgroups | |
+| subgroups | Contains the members of groups. |
 | subgroupscontacts | |
 | subgroupsnetworkdevices | |
 | subgroupwchildren | |
@@ -488,7 +488,7 @@ An attempt at describing the purpose of each table in LabTech.
 | syslogtraps | |
 | templateavailableproperties | |
 | templateproperties | |
-| templates | |
+| templates | Navigation Tree -> Admin -> Templates |
 | ticketdata | |
 | ticketdatatypes | |
 | ticketpolicyemails | |
