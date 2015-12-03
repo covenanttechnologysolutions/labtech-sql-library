@@ -19,7 +19,7 @@ Table Aliases     :
 SELECT
     CONCAT_WS(' - ', Groups.GroupID, Groups.Name) AS `GroupName`
   , Groups.FullName                               AS `GroupPath`
-  , agents.Name                                   AS `Monitor`
+  , MonitorDetails.Name                           AS `Monitor`
   , AlertTemplates.Name                           AS `AlertTemplate`
   , GroupCategories.CategoryName                  AS `CategoryName`
 FROM groupdagents AS `InternalMonitors`

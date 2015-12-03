@@ -19,14 +19,14 @@ Table Aliases     :
 SELECT
     CONCAT_WS(' - ', Groups.GroupID, Groups.Name) AS `GroupName`
   , Groups.FullName                               AS `GroupPath`
-  , agents.Name                                   AS `Monitor`
+  , MonitorDetails.Name                           AS `Monitor`
   , AlertTemplates.Name                           AS `AlertTemplate`
   , GroupCategories.CategoryName                  AS `CategoryName`
-FROM groupdagents AS `InternalMonitors`
-  LEFT JOIN agents AS `MonitorDetails` ON InternalMonitors.AgentID = MonitorDetails.AgentID
-  LEFT JOIN mastergroups AS `Groups` ON InternalMonitors.GroupID = Groups.GroupID
-  LEFT JOIN alerttemplate AS `AlertTemplates` ON InternalMonitors.AlertAction = AlertTemplates.AlertActionID
-  LEFT JOIN infocategory AS `GroupCategories` ON InternalMonitors.TicketCategory = GroupCategories.ID
+FROM groupagents AS `RemoteMonitors`
+  LEFT JOIN agents AS `MonitorDetails` ON RemoteMonitors.AgentID = MonitorDetails.AgentID
+  LEFT JOIN mastergroups AS `Groups` ON RemoteMonitors.GroupID = Groups.GroupID
+  LEFT JOIN alerttemplate AS `AlertTemplates` ON RemoteMonitors.AlertAction = AlertTemplates.AlertActionID
+  LEFT JOIN infocategory AS `GroupCategories` ON RemoteMonitors.TicketCategory = GroupCategories.ID
 WHERE (MonitorDetails.Flags & 0x01) = 0
 #AND Groups.GroupID = 1580 # Group Id
 #AND MonitorDetails.Name = 'AV - Disabled' # Internal Monitor Name
