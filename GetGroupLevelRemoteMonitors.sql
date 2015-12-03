@@ -9,7 +9,7 @@ Tested Versions   :
 
 Table Aliases     :
   Groups                - mastergroups
-  InternalMonitors      - groupdagents
+  RemoteMonitors        - groupagents
   MonitorDetails        - agents
   GroupCategories       - infocategory
   AlertTemplates        - alerttemplate
