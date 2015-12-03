@@ -1,10 +1,8 @@
 # LabTech 10.0 SQL Scripts
-This is a collection of SQL Scripts for LabTech, feel free to submit pull requests or contact me in IRC on freenode servers, channel ##labtech, nick jessec.
-
-Contact:
+This is a collection of SQL Scripts and snippets for LabTech. If you would like to change, add or request something feel free to submit a pull request or contact me in IRC on freenode servers, channel ##labtech, nick jessec.
 
 ## LabTech Table Descriptions
-An ongoing list of each table's purpose in LabTech.
+An attempt at describing the purpose of each table in LabTech.
 
 | Table Name | Description |
 | ------------- | ----------- |
