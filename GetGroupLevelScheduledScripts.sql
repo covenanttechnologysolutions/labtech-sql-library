@@ -15,37 +15,41 @@ Table Aliases     :
 
 */
 
-
-#todo: determine the ScriptFlags use
-#todo: verify each property, get names where it's needed
-#todo: find out why groupscripts contains scripts not related to groups
+#todo: combine repeat and schedule columns into single readable columns
 
 SELECT
     CONCAT_WS(' - ', Groups.GroupID, Groups.Name)          AS `GroupName`
   , Groups.FullName                                        AS `GroupPath`
   , CONCAT_WS(' - ', Scripts.ScriptId, Scripts.ScriptName) AS `ScriptName`
   , Searches.Name                                          AS `SearchName`
-  , ScheduledScripts.Priority
-  , ScheduledScripts.Last_Date
   , ScheduledScripts.SkipOffline
   , ScheduledScripts.OfflineOnly
-  , ScheduledScripts.WakeOffline
-  , ScheduledScripts.WakeScript
-  , ScheduledScripts.DisableTimeZone
-  , ScheduledScripts.RunScriptOnProbe
-  , ScheduledScripts.RunTime                               AS `NextRun`
-  , ScheduledScripts.ScriptType
-  , ScheduledScripts.Repeat
-  , ScheduledScripts.DistributionWindowType
-  , ScheduledScripts.DistributionWindowAmount
-  , ScheduledScripts.ScheduleType
-  , ScheduledScripts.Interval
-  , ScheduledScripts.RepeatType
+  , ScheduledScripts.Priority
+  , ScheduledScripts.RunScriptonProbe
+  , ScheduledScripts.Parameters
+  , ScheduledScripts.Last_Date                             AS `LastDateRan`
+  , ScheduledScripts.RunTime                               AS `NextRunDate`
+  , CASE
+    WHEN ScheduledScripts.ScheduleType = 1 THEN 'Once'
+    WHEN ScheduledScripts.ScheduleType = 2 THEN 'Minute'
+    WHEN ScheduledScripts.ScheduleType = 3 THEN 'Hourly'
+    WHEN ScheduledScripts.ScheduleType = 4 THEN 'Daily'
+    WHEN ScheduledScripts.ScheduleType = 5 THEN 'Weekly'
+    WHEN ScheduledScripts.ScheduleType = 6 THEN 'Monthly'
+    END                                                    AS `ScheduleType`
+  , ScheduledScripts.Interval                              AS `RunEveryXScheduleType`
+  , CASE
+    WHEN ScheduledScripts.RepeatType = 0 THEN 'None'
+    WHEN ScheduledScripts.RepeatType = 1 THEN 'Seconds'
+    WHEN ScheduledScripts.RepeatType = 2 THEN 'Minutes'
+    WHEN ScheduledScripts.RepeatType = 3 THEN 'Hours'
+    END                                                    AS `RepeatType`
+  , ScheduledScripts.RepeatAmount
+  , ScheduledScripts.RepeatStopAfter                       AS `StopRepeatAfterXRepetitions`
 FROM groupscripts AS `ScheduledScripts`
   LEFT JOIN lt_scripts AS `Scripts` ON ScheduledScripts.ScriptID = Scripts.ScriptId
   LEFT JOIN mastergroups AS `Groups` ON ScheduledScripts.GroupID = Groups.GroupID
   LEFT JOIN sensorchecks AS `Searches` ON ScheduledScripts.SearchID = Searches.SensID
-WHERE (Scripts.ScriptFlags & 128) <> 128 AND (Scripts.ScriptFlags & 64) <> 64
 ORDER BY Groups.FullName ASC;
 
 
