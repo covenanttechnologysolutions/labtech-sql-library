@@ -206,7 +206,7 @@ An attempt at describing the purpose of each table in LabTech.
 | ignite_propertytypes | |
 | igniteguids | |
 | igniteserviceplantypes | |
-| infocategory | |
+| infocategory | Ticket Categories for monitors.  Dashboard -> Config -> Configurations -> Information Base Categories |
 | informationbase | |
 | inv_bios | |
 | inv_chassis | |
@@ -347,21 +347,21 @@ An attempt at describing the purpose of each table in LabTech.
 | plugin_cw_productclasses | |
 | plugin_cw_producttypes | |
 | plugin_cw_sectionlookup | |
-| plugin_cw_serviceboards | |
+| plugin_cw_serviceboards | ConnectWise plugin service board definitions |
 | plugin_cw_serviceitemrelations | |
-| plugin_cw_serviceitems | |
-| plugin_cw_servicepriorities | |
+| plugin_cw_serviceitems | ConnectWise plugin service board service item definitions |
+| plugin_cw_servicepriorities | ConnectWise plugin service board priority definitions |
 | plugin_cw_servicepriorityxrefs | |
 | plugin_cw_servicestatuses | |
 | plugin_cw_servicesubtyperelations | |
-| plugin_cw_servicesubtypes | |
-| plugin_cw_servicetypes | |
+| plugin_cw_servicesubtypes | ConnectWise plugin service board service subtype definitions |
+| plugin_cw_servicetypes | ConnectWise plugin service board service type definitions |
 | plugin_cw_settings | |
 | plugin_cw_sitemapping | |
 | plugin_cw_streamlinecollectionmapping | |
 | plugin_cw_subcategories | |
 | plugin_cw_ticket_failures | |
-| plugin_cw_worktypes | |
+| plugin_cw_worktypes | ConnectWise plugin work type definitions |
 | plugin_sap_activities | |
 | plugin_sap_activityresults | |
 | plugin_sap_applieddeductions | |
@@ -452,7 +452,7 @@ An attempt at describing the purpose of each table in LabTech.
 | roledefinitions | |
 | roleremoteplugin | |
 | routers | |
-| runningscripts | |
+| runningscripts | Scripts queued into the script engine. If running=1, the script is running.  If running=0, the script is Waiting or Pending, depending on if the target machine is online or offline.  |
 | scheduledscripts | |
 | scheduledtasks | |
 | schedules | |
@@ -475,9 +475,9 @@ An attempt at describing the purpose of each table in LabTech.
 | smartattributes | |
 | snmpchecks | |
 | snmptraps | |
-| software | |
-| sphistory | |
-| spjobs | |
+| software | Computer screen -> Software tab |
+| sphistory | ShadowProtect integration (LTBackup Tab on Computer screen) job history  |
+| spjobs | ShadowProtect integration (LTBackup Tab on Computer screen) job definitions |
 | statusitems | |
 | subgroups | Contains the members of groups. |
 | subgroupscontacts | |
